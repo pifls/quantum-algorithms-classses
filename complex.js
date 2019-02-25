@@ -23,11 +23,8 @@ Complex.prototype.multiply = (x, y) => {
 }
 Complex.prototype.divide = (x, y) => {
     let con = y.conjugate();
-    console.log(con);
     let up = x.multiply(x,con);
-    console.log(up);
     let down = x.multiply(y, con);
-    console.log(down);
     z = new Complex(up.real / down.real, up.imaginary / down.real);
     return z;
 }
@@ -35,3 +32,9 @@ Complex.prototype.conjugate = function() {
     z = new Complex(this.real, - this.imaginary);
     return z;
 }
+Complex.prototype.modulus = function() {
+    return Math.sqrt(this.real * this.real + this.imaginary * this.imaginary);
+}
+
+x = new Complex(3,4);
+console.log(x.modulus());
