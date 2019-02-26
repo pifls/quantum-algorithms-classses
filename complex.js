@@ -35,6 +35,10 @@ Complex.prototype.conjugate = function() {
 Complex.prototype.modulus = function() {
     return Math.sqrt(this.real * this.real + this.imaginary * this.imaginary);
 }
-
-x = new Complex(3,4);
-console.log(x.modulus());
+Complex.prototype.trigonometric = function() {
+    modulus = this.modulus();
+    sin = this.imaginary / modulus;
+    cos = this.real / modulus;
+    alfa = Math.atan2(sin, cos);
+    return alfa;
+}
