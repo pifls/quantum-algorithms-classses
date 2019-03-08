@@ -25,4 +25,10 @@ function Vector(coefficients) {
         }
         return result;
     }
+    Vector.prototype.norm = v => {
+        product = v.product(v,v);
+        console.log(product)
+        norm = Math.sqrt(product.real);
+        return norm;
+    }
 }
