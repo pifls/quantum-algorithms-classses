@@ -14,4 +14,15 @@ function Vector(coefficients) {
         v.coefficients.map((coefficient,index) => newCoefficients.push(coefficient.multiply(x.coefficients[index], scalar)));
         return new Vector(newCoefficients);
     }
+    Vector.prototype.product = (v1,v2) => {
+        let result = new Complex(0,0)
+        let multiplyResult = []
+        for(let i = 0; i < v1.n; i++){
+            multiplyResult[i] = result.multiply(v1.coefficients[i], v2.coefficients[i]);
+        }
+        for(let i = 0; i < multiplyResult.length; i++) {
+            result = result.sum(result, multiplyResult[i]);
+        }
+        return result;
+    }
 }
