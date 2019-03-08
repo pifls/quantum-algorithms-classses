@@ -1,4 +1,4 @@
-function Complex(real, imaginary){
+function Complex(real, imaginary) {
     this.real = real;
     this.imaginary = imaginary;
 }
@@ -41,4 +41,7 @@ Complex.prototype.trigonometric = function() {
     cos = this.real / modulus;
     alfa = Math.atan2(sin, cos);
     return alfa;
+    // return alfa * 180 / Math.PI;
 }
+
+module.exports = {Complex: Complex};
