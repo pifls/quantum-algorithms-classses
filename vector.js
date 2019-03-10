@@ -18,7 +18,7 @@ function Vector(coefficients) {
         let result = new Complex(0,0)
         let multiplyResult = []
         for(let i = 0; i < v1.n; i++){
-            multiplyResult[i] = result.multiply(v1.coefficients[i], v2.coefficients[i]);
+            multiplyResult[i] = result.multiply(v1.coefficients[i], v2.coefficients[i].conjugate(v2.coefficients[i]));
         }
         for(let i = 0; i < multiplyResult.length; i++) {
             result = result.sum(result, multiplyResult[i]);
@@ -27,8 +27,6 @@ function Vector(coefficients) {
     }
     Vector.prototype.norm = v => {
         product = v.product(v,v);
-        console.log(product)
-        norm = Math.sqrt(product.real);
-        return norm;
+        return new Complex(Math.sqrt(product.real), 0);
     }
 }
